@@ -23,6 +23,7 @@ export const AddProgress: React.FC = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log('Submitted:', data);
+    alert('Work in progress!');
     //   TODO: save to local sotrage
     //  TODO: history push to /progress
   };

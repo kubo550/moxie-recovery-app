@@ -3,3 +3,4 @@ export { Home } from './Home';
 export { Private } from './Private';
 export { Progress } from './progress/Progress';
 export { AddProgress } from './progress/AddProgress';
+export { Support } from './Support/Support';
