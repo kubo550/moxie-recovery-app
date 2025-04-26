@@ -52,7 +52,7 @@ export const ProgressDetails = () => {
         </div>
       )}
 
-      <div className="my-10 text-center text-lg">
+      <div className="my-1 text-center text-lg">
         <TypeAnimation
           sequence={[
             'Believe you can and you are halfway there.',
