@@ -2,17 +2,26 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { v4 as uuidv4 } from 'uuid';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { useNavigate } from 'react-router-dom';
+import { LocalStorage } from '@/contexts/localStorage';
 
 interface FormValues {
   addiction: string;
-  startDate: Date | null;
+  startDate: Date;
   note: string;
 }
 
+export interface ProgressData extends FormValues {
+  id: string;
+}
+
 export const AddProgress: React.FC = () => {
-  // TODO: use params to check if progress has id - if yes then fetch data and set default values
+  const navigate = useNavigate();
+  // const { id } = useParams();
+
   const { control, handleSubmit, register } = useForm<FormValues>({
     defaultValues: {
       addiction: '',
@@ -22,14 +31,16 @@ export const AddProgress: React.FC = () => {
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log('Submitted:', data);
-    alert('Work in progress!');
-    //   TODO: save to local sotrage
-    //  TODO: history push to /progress
+    LocalStorage.getInstance().pushArrayItem('progresses', {
+      ...data,
+      id: uuidv4()
+    } as ProgressData);
+
+    navigate('/progress');
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#2c2d55] px-4 py-8 pt-20 text-white">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-[#2c2d55] to-[#1e1f3d] px-4 py-8 pt-20 text-white">
       <h1 className="mb-6 text-2xl font-bold">Add Progress</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-md space-y-6">

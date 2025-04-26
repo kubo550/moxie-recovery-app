@@ -1,6 +1,7 @@
 export { Login } from './Login';
 export { Home } from './Home';
 export { Private } from './Private';
-export { Progress } from './progress/Progress';
-export { AddProgress } from './progress/AddProgress';
+export { ProgressesList } from '@/pages/progresses/ProgressesList';
+export { AddProgress } from '@/pages/progresses/AddProgress';
 export { Support } from './Support/Support';
+export { ProgressDetails } from '@/pages/ProgressDetails/ProgressDetails';

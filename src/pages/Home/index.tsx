@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export const Home: FunctionComponent = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#2c2d55] px-4 text-white">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2c2d55] to-[#1e1f3d] px-4 text-white">
       <TypeAnimation
         sequence={[
           'Commit to the Lord whatever you do, and He will establish your plans.',
