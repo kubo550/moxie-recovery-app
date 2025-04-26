@@ -18,14 +18,14 @@
     "framer-motion": "12.9.2",
     "localforage": "1.10.0",
     "match-sorter": "6.3.1",
+    "nanoid": "5.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.56.1",
     "react-router": "6.22.3",
     "react-router-dom": "6.22.3",
     "react-type-animation": "3.2.0",
-    "sort-by": "1.2.0",
-    "uuid": "11.1.0"
+    "sort-by": "1.2.0"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "1.5.0",

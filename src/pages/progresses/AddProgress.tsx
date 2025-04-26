@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,6 @@ export interface ProgressData extends FormValues {
 
 export const AddProgress: React.FC = () => {
   const navigate = useNavigate();
-  // const { id } = useParams();
 
   const { control, handleSubmit, register } = useForm<FormValues>({
     defaultValues: {
@@ -33,7 +32,7 @@ export const AddProgress: React.FC = () => {
   const onSubmit = (data: FormValues) => {
     LocalStorage.getInstance().pushArrayItem('progresses', {
       ...data,
-      id: uuidv4()
+      id: nanoid(6)
     } as ProgressData);
 
     navigate('/progress');
