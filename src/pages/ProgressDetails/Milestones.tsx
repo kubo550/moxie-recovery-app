@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, Typography } from '@mui/material';
 
-export const Milestones = ({ days }: { days: number }) => {
-  const milestones = [10, 30, 120];
-
+export const Milestones = ({ days, milestones }: { days: number; milestones: number[] }) => {
   const milestoneColors = {
     achieved: 'from-green-400 via-emerald-500 to-green-600',
     pending: 'from-gray-500 via-gray-600 to-gray-700'
   };
 
+  const milestonesToDisplayIndex = milestones.findIndex((milestone) => milestone > days);
+  const milestonesToDisplay = milestones.slice(milestonesToDisplayIndex - 1, milestonesToDisplayIndex + 2);
+
   return (
     <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-      {milestones.map((milestone, idx) => {
+      {milestonesToDisplay.map((milestone, idx) => {
         const achieved = days >= milestone;
 
         return (
@@ -47,6 +48,14 @@ export const Milestones = ({ days }: { days: number }) => {
           </motion.div>
         );
       })}
+
+      <div className="mt-3 flex items-center justify-center">
+        <div className="flex space-x-2">
+          <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.3s]"></span>
+          <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.15s]"></span>
+          <span className="h-2 w-2 animate-bounce rounded-full bg-gray-400"></span>
+        </div>
+      </div>
     </div>
   );
 };

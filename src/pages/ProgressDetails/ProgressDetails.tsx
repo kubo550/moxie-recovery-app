@@ -21,7 +21,7 @@ export const ProgressDetails = () => {
 
   if (!currentProgress) return null;
 
-  const milestones = [10, 30, 120];
+  const milestones = [1, 30, 60, 90, 120, 180, 365, 730, 1095, 1460, 1825, 2190, 2555];
 
   const days = differenceInDays(new Date(), new Date(currentProgress.startDate));
   const nextMilestone = milestones.find((milestone) => milestone > days) ?? null;
@@ -34,7 +34,7 @@ export const ProgressDetails = () => {
         <p className="text-xl opacity-80">{days} days sober</p>
       </div>
 
-      <Milestones days={days} />
+      <Milestones milestones={milestones} days={days} />
 
       {daysToNextMilestone !== null && (
         <div className="mb-10 text-center">
