@@ -6,9 +6,9 @@ export const Navbar = () => {
       <div className="flex">
         <Link to="/">
           <img
-            src="https://github.com/kubo550/moxie-daily/blob/develop/public/loog.jpg?raw=true"
+            src="/logo.jpeg"
             alt="Moxie Daily Logo"
-            className="mx-auto  -ml-2 h-16  max-w-xs p-3 sm:h-16 md:h-20"
+            className="mx-auto  -ml-2 max-h-[80px]  max-w-xs p-3 sm:h-16 md:h-20"
           />
         </Link>
       </div>
